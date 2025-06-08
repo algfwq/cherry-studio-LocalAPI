@@ -20,6 +20,7 @@ import selectionService, { initSelectionService } from './services/SelectionServ
 import { registerShortcuts } from './services/ShortcutService'
 import { TrayService } from './services/TrayService'
 import { windowService } from './services/WindowService'
+import { localApiServer } from './services/LocalAPIServer'
 import { setUserDataDir } from './utils/file'
 
 Logger.initialize()
@@ -71,6 +72,7 @@ if (!app.requestSingleInstanceLock()) {
 
     const mainWindow = windowService.createMainWindow()
     new TrayService()
+    localApiServer.start()
 
     app.on('activate', function () {
       const mainWindow = windowService.getMainWindow()
@@ -135,6 +137,7 @@ if (!app.requestSingleInstanceLock()) {
     // event.preventDefault()
     try {
       await mcpService.cleanup()
+      localApiServer.close()
     } catch (error) {
       Logger.error('Error cleaning up MCP service:', error)
     }
