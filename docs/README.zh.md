@@ -128,6 +128,8 @@ https://docs.cherry-ai.com
 
 参考[开发文档](dev.md)
 
+参考[本地 API 使用文档](technical/local-api.zh.md)
+
 参考[架构概览文档](https://deepwiki.com/CherryHQ/cherry-studio)
 
 参考[分支策略](branching-strategy-zh.md)了解贡献指南
